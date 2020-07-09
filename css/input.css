@@ -4,6 +4,7 @@ body{
 }
 #word, #explain, #search{
     font-style: italic;
+    font-family: "휴먼매직체";
 }
 button{
     margin: 5px;
@@ -25,6 +26,9 @@ button{
     display: inline-block;
     border: 10px dashed gray;
     color: white;
+    background-image: url('/images/bgInput.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .container2{
     width: 400px;
@@ -51,7 +55,7 @@ textarea{
     margin: 10px;
 }
 #recent{
-    font-family: "궁서체";
+    font-family: "휴먼매직체";
     font-weight: bold;
 }
 tr, td{
@@ -65,13 +69,15 @@ table{
     width: 60px;
 }
 #askTitle, #askNum{
-    font-family: "궁서체";
+    font-family: "휴먼매직체";
     font-size: 20px;
     font-weight: bold;
     margin: 0 auto;
 }
 .search{
-    font-family: "궁서체";
+    font-family: "휴먼매직체";
+    font-weight: bold;
+    color: black;
 }
 .buttonImg{
     width: 20px;
@@ -83,10 +89,12 @@ table{
     width: 500px;
     height: 500px;
     background: radial-gradient( orange, red, brown );
+    border: 10px solid black;
 }
 .ans{
     width: 460px;
     height: 300px;
+    font-family: "휴먼매직체";
 }
 #search{
     margin-top: 10px;
@@ -100,4 +108,9 @@ table{
     float: left;
     width: 260px;
     height: 90px;
+}
+.total{
+    background-image: url('/images/bg2.jpg');
+    background-repeat: no-repeat;
+    background-size: 1940px 900px;
 }
