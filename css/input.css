@@ -108,10 +108,3 @@ table{
     background-repeat: no-repeat;
     background-size: 1940px 900px;
 }
-.character{
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    margin-top: -60px;
-    margin-left: -250px;
-}
