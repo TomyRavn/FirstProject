@@ -26,3 +26,9 @@
 .bar li a:hover{
     background-color: red;
 }
+.logo{
+    margin-top: 30px;
+    float: left;
+    width: 260px;
+    height: 90px;
+}
