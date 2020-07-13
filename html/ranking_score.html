@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Ranking_Score</title>
         <link rel="stylesheet" href="./css/navi.css"/>
         <link rel="stylesheet" href="./css/result.css"/>
 </head>
@@ -21,31 +21,32 @@
     <center>
     <div id="container">
        
-        <div class = "div1">
+        <div class = "div3" id = "score" style="position: relative; z-index: 2;">
            
             <table class="box1">
             <tr>
-                <th><h1><b>SCORE</b></h1></th>
-            </tr>
-            <tr>
-                <td><h3> </h3><h5>  점</h5></td>
+                <th><h1>SCORE : </h1></th>
+                <td><h1> XX점 </h1></td>
             </tr>
             </table>
         </div>
 
-        <div class="div3">
-            <p><h1>당신은 <br/>상위 XX%의 <br/>지식인입니다.</h1></p>
+        <div class="div1">
+            <br/><br/>
+            <table id = "p">
+                <th><h1>당신은 상위 XX%의 지식인입니다.</h1></th>
+            </table>
         </div>
 
-        <div class="div2">
+        <div class="div2" id="rank">
             <table class="box2">
                 <tr>
-                    <td colspan=3 align="center"><h3>RANKING</h3></td>
+                    <td colspan=3 class="inputTi"><h3>RANKING</h3></td>
                 </tr>
                 <tr>
-                    <th class="inputRk">Ranking</th>
-                    <th class="inputId">ID</th>
-                    <th class="inputSc">SCORE</th>
+                    <th class="inputRk2">Ranking</th>
+                    <th class="inputId2">ID</th>
+                    <th class="inputSc2">SCORE</th>
                 </tr>
                 <tr>
                     <td class="inputRk">1</td>
