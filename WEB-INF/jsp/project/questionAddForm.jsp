@@ -31,13 +31,16 @@
 	</center>
 	<div class="total">
 		<div class="container3">
-			<audio controls autoplay preload>
-				<source src="<%=request.getContextPath()%>/media/bgm1.mp3" type="audio/mp3">
-				<source src="<%=request.getContextPath()%>/media/bgm2.mp3" type="audio/mp3">
-				<source src="<%=request.getContextPath()%>/media/bgm3.mp3" type="audio/mp3">
-				<source src="<%=request.getContextPath()%>/media/bgm4.mp3" type="audio/mp3">
-				<source src="<%=request.getContextPath()%>/media/bgm5.mp3" type="audio/mp3">
-			</audio>
+		
+			<audio id="myAudio" controls autoplay>
+                <source id="main">
+                <source type="audio/mp3" src="<%=request.getContextPath()%>/media/bgm1.mp3">
+                <source type="audio/mp3" src="<%=request.getContextPath()%>/media/bgm2.mp3">
+                <source type="audio/mp3" src="<%=request.getContextPath()%>/media/bgm3.mp3">
+                <source type="audio/mp3" src="<%=request.getContextPath()%>/media/bgm4.mp3">
+                <source type="audio/mp3" src="<%=request.getContextPath()%>/media/bgm5.mp3">                    
+            </audio>
+            <button class="btn-info" id="playNext" type="submit">다음 곡 재생</button>
 
 			<div class="container4">
 				<br>
@@ -102,5 +105,6 @@
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/search.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/js/audio.js"></script>
 </body>
 </html>
