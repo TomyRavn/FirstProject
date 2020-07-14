@@ -70,7 +70,8 @@ body{
     /* border:1px solid white; */
     background-color: white;
     float: left;
-    position: relative; z-index: 2;
+    position: relative; 
+    z-index: 2;
     margin-top: 600px;
     margin-left: 1000px;
    }
