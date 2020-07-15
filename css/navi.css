@@ -1,7 +1,10 @@
 .cent{
     font-family: "궁서체";
     font-weight: bold;
-    background-color: black;
+    /*background-color: black; */
+    background-image: url('../images/pngegg\ \(1\).png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .bar{
     list-style-type: none;
@@ -32,4 +35,14 @@
     float: left;
     width: 260px;
     height: 90px;
+}
+.memName{
+    float: right;
+    color: white;
+    list-style: none;
+    font-family: "굴림";
+}
+.nameLink{
+    color: white;
+    text-decoration: none;
 }
