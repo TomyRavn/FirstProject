@@ -1,0 +1,48 @@
+.cent{
+    font-family: "궁서체";
+    font-weight: bold;
+    /*background-color: black; */
+    background-image: url('../images/pngegg\ \(1\).png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.bar{
+    list-style-type: none;
+    list-style: none;
+}
+.bar li{
+    display: inline-block;
+    margin: 15px 10px;
+    padding: 40px;
+}
+.bar li a{
+    padding: 5px 15px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    background-color: orange;
+}
+
+[class ~= "button"]{
+    border: 2px solid black;
+    box-shadow: rgba(251, 255, 0, 0.774) 5px 5px;
+}
+.bar li a:hover{
+    background-color: red;
+}
+.logo{
+    margin-top: 30px;
+    float: left;
+    width: 260px;
+    height: 90px;
+}
+.memName{
+    float: right;
+    color: white;
+    list-style: none;
+    font-family: "굴림";
+}
+.nameLink{
+    color: white;
+    text-decoration: none;
+}
