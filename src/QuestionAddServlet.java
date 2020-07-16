@@ -15,11 +15,16 @@ import javax.servlet.http.HttpSession;
 public class QuestionAddServlet extends HttpServlet{
 	
 	QuestionDaoJdbc questionDao = new QuestionDaoJdbc();
+	HttpSession session;
+	String id;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		List<QuestionVo> questionList = questionDao.selectQuestionList();
+		session = req.getSession();
+		id = (String) session.getAttribute("loginUser");
+		
+		List<QuestionVo> questionList = questionDao.selectRecentQuestionList(id);
 		req.setAttribute("questionList", questionList);
 		
 		req.getRequestDispatcher("/WEB-INF/jsp/project/questionAddForm.jsp").forward(req, resp);
@@ -37,8 +42,8 @@ public class QuestionAddServlet extends HttpServlet{
 		int num = 0;
 		QuestionVo vo = new QuestionVo();
 		
-		HttpSession session = req.getSession();
-		String id = (String) session.getAttribute("loginUser");
+		session = req.getSession();
+		id = (String) session.getAttribute("loginUser");
 		
 		if(!(questionWord.equals("")) && !(questionExplain.equals(""))) {
 			vo.setQuestionWord(questionWord);
