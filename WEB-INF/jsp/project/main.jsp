@@ -20,9 +20,9 @@
         </ul>
         <ul class="bar">
             <a href="#"><img class="logo" src="<%=request.getContextPath()%>/images/logo.png"></a>
-            <li><a href="#" class="button">랭킹</a></li>
-            <li><a href="#" class="button">문제 출제</a></li>
-            <li><a href="#" class="button">문제 리스트</a></li>
+            <li><a href="<%=request.getContextPath()%>/ranking.do" class="button">랭킹</a></li>
+            <li><a href="<%=request.getContextPath()%>/add.do" class="button">문제 출제</a></li>
+            <li><a href="<%=request.getContextPath()%>/main.do" class="button">문제 리스트</a></li>
         </ul>
     </div>
         <hr>
