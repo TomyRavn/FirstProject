@@ -17,14 +17,14 @@ public class QuestionDaoJdbc {
 		}
 	}
 
-	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String url = "jdbc:oracle:thin:172.16.144.33:1521:xe";
 	String user = "project";
 	String password = "project01";
 
 	
 	public ArrayList<QuestionVo> selectQuestionList() {
 		ArrayList<QuestionVo> questionList = new ArrayList<QuestionVo>();
-		String sql = "SELECT question_word, question_explain FROM question ORDER BY question_reg_date";
+		String sql = "SELECT question_word, question_explain FROM question ORDER BY question_reg_date DESC";
 		
 		try (
 				Connection conn = DriverManager.getConnection(url, user, password);
@@ -50,14 +50,14 @@ public class QuestionDaoJdbc {
 
 		int num = 0;
 
-		String sql = "INSERT INTO question (question_word, question_explain) " + "VALUES (?, ?)";
+		String sql = "INSERT INTO question (seq_question_no.NEXTVAL, question_word, question_explain, question_writer) " + "VALUES (?, ?, ?)";
 
 		try (Connection conn = DriverManager.getConnection(url, user, password);
 				PreparedStatement pstmt = conn.prepareStatement(sql);) {
 
 			pstmt.setString(1, vo.getQuestionWord());
 			pstmt.setString(2, vo.getQuestionExplain());
-//			pstmt.setString(3, vo.getQuestionWriter());
+			pstmt.setString(3, vo.getQuestionWriter());
 
 			num = pstmt.executeUpdate();
 

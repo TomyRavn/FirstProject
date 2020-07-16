@@ -17,7 +17,7 @@ public class RankingDaoJdbc {
 		}
 	}
 
-	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String url = "jdbc:oracle:thin:172.16.144.33:1521:xe";
 	String user = "project";
 	String password = "project01";
 

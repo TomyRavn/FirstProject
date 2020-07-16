@@ -8,7 +8,7 @@
 </head>
 <body>
 		<h1>로그인</h1>
-		<form action="${pageContext.request.contextPath}/project/login.do" method="Post">
+		<form action="${pageContext.request.contextPath}/login.do" method="Post">
 			아이디 : <input type="text" name="memId"/> <br />
 			비밀번호 : <input type="password" name="memPassword"/> <br />
 			<input type="submit" value="로그인" /> 

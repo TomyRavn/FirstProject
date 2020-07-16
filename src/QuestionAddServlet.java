@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 @WebServlet("/add.do")
 public class QuestionAddServlet extends HttpServlet{
 	
@@ -31,19 +32,18 @@ public class QuestionAddServlet extends HttpServlet{
 		
 		String questionWord = req.getParameter("questionWord");
 		String questionExplain = req.getParameter("questionExplain");
-//		String questionWriter = req.getParameter("questionWriter");
 		
 		int num = 0;
+		QuestionVo vo = new QuestionVo();
+		
+		MainVo loginVo = (MainVo) req.getAttribute("loginUser");
+		vo.setQuestionWriter(loginVo.getMemId());
 		
 		if(!(questionWord.equals("")) && !(questionExplain.equals(""))) {
-			QuestionVo vo = new QuestionVo();
 			vo.setQuestionWord(questionWord);
 			vo.setQuestionExplain(questionExplain);
 		
-//		vo.setQuestionWriter(questionWriter);
-		
 			num = questionDao.insertQustion(vo);
-	
 		}
 		System.out.println(num + "개 문제 추가");
 		resp.sendRedirect(req.getContextPath() + "/add.do");

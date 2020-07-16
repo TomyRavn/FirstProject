@@ -24,7 +24,7 @@ body{
     border: 1px solid black;
     width: 1882px;
     height: 750px;
-    background-image: url('/images/tetris2.jpg');
+    background-image: url('../images/tetris2.jpg');
     background-repeat: no-repeat; 
     background-size: 1880px 800px;
 }
