@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet("/add.do")
@@ -36,12 +37,13 @@ public class QuestionAddServlet extends HttpServlet{
 		int num = 0;
 		QuestionVo vo = new QuestionVo();
 		
-		MainVo loginVo = (MainVo) req.getAttribute("loginUser");
-		vo.setQuestionWriter(loginVo.getMemId());
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("loginUser");
 		
 		if(!(questionWord.equals("")) && !(questionExplain.equals(""))) {
 			vo.setQuestionWord(questionWord);
 			vo.setQuestionExplain(questionExplain);
+			vo.setQuestionWriter(id);
 		
 			num = questionDao.insertQustion(vo);
 		}

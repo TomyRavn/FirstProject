@@ -17,7 +17,7 @@ public class QuestionDaoJdbc {
 		}
 	}
 
-	String url = "jdbc:oracle:thin:172.16.144.33:1521:xe";
+	String url = "jdbc:oracle:thin:@172.16.144.33:1521:xe";
 	String user = "project";
 	String password = "project01";
 
@@ -50,7 +50,7 @@ public class QuestionDaoJdbc {
 
 		int num = 0;
 
-		String sql = "INSERT INTO question (seq_question_no.NEXTVAL, question_word, question_explain, question_writer) " + "VALUES (?, ?, ?)";
+		String sql = "INSERT INTO question (question_no, question_word, question_explain, question_writer) " + "VALUES (seq_question_no.NEXTVAL, ?, ?, ?)";
 
 		try (Connection conn = DriverManager.getConnection(url, user, password);
 				PreparedStatement pstmt = conn.prepareStatement(sql);) {
