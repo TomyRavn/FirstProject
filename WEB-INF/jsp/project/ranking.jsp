@@ -34,7 +34,7 @@
             <table class="box1">
             <tr>
                 <th><h1>SCORE : </h1></th>
-                <td><h1> XX점 </h1></td>
+                <td><h1> ${RankingVo.uScore}점 </h1></td>
             </tr>
             </table>
         </div>
@@ -57,55 +57,57 @@
                     <th class="inputSc2"><b>SCORE</b></th>
                 </tr>
                 <tr>
-                    <td class="inputRk"><b>1</b></td>
-                    <td class="inputId"><b>ID</b></td>
-                    <td class="inputSc"><b>Score</b></td>
+                <c:foreach var="rank" items= "${rankingList}" begin="1" end="10" step="1">
+                    <td class="inputRk"><b><c:out value="${rank.u_ranking}"/></b></td>
+                    <td class="inputId"><b><c:out value="${rank.u_id}"/></b></td>
+                    <td class="inputSc"><b><c:out value="${rank.u_score}"></c:out></b></td>
+                 </c:foreach>
                 </tr>
-                <tr>
-                    <td class="inputRk"><b>2</b></td>
-                    <td class="inputId"><b>ID</b></td>
-                    <td class="inputSc"><b>Score</b></td>
-                </tr>
-                <tr>
-                    <td class="inputRk"><b>3</b></td>
-                    <td class="inputId"><b>ID</b></td>
-                    <td class="inputSc"><b>Score</b></td>
-                </tr>
-                <tr>
-                    <td class="inputRk"><b>4</b></td>
-                    <td class="inputId"><b>ID</b></td>
-                    <td class="inputSc"><b>Score</b></td>
-                </tr>
-                <tr>
-                    <td class="inputRk"><b>5</b></td>
-                    <td class="inputId"><b>ID</b></td>
-                    <td class="inputSc"><b>Score</b></td>
-                </tr>
-                <tr>
-                    <td class="inputRk"><b>6</b></td>
-                    <td class="inputId"><b>ID</b></td>
-                    <td class="inputSc"><b>Score</b></td>
-                </tr>
-                <tr>
-                    <td class="inputRk"><b>7</b></td>
-                    <td class="inputId"><b>ID</b></td>
-                    <td class="inputSc"><b>Score</b></td>
-                </tr>
-                <tr>
-                    <td class="inputRk"><b>8</b></td>
-                    <td class="inputId"><b>ID</b></td>
-                    <td class="inputSc"><b>Score</b></td>
-                </tr>
-                <tr>
-                    <td class="inputRk"><b>9</b></td>
-                    <td class="inputId"><b>ID</b></td>
-                    <td class="inputSc"><b>Score</b></td>
-                </tr>
-                <tr>
-                    <td class="inputRk"><b>10</b></td>
-                    <td class="inputId"><b>ID</b></td>
-                    <td class="inputSc"><b>Score</b></td>
-                </tr>
+<!--                 <tr> -->
+<!--                     <td class="inputRk"><b>2</b></td> -->
+<!--                     <td class="inputId"><b>ID</b></td> -->
+<!--                     <td class="inputSc"><b>Score</b></td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!--                     <td class="inputRk"><b>3</b></td> -->
+<!--                     <td class="inputId"><b>ID</b></td> -->
+<!--                     <td class="inputSc"><b>Score</b></td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!--                     <td class="inputRk"><b>4</b></td> -->
+<!--                     <td class="inputId"><b>ID</b></td> -->
+<!--                     <td class="inputSc"><b>Score</b></td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!--                     <td class="inputRk"><b>5</b></td> -->
+<!--                     <td class="inputId"><b>ID</b></td> -->
+<!--                     <td class="inputSc"><b>Score</b></td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!--                     <td class="inputRk"><b>6</b></td> -->
+<!--                     <td class="inputId"><b>ID</b></td> -->
+<!--                     <td class="inputSc"><b>Score</b></td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!--                     <td class="inputRk"><b>7</b></td> -->
+<!--                     <td class="inputId"><b>ID</b></td> -->
+<!--                     <td class="inputSc"><b>Score</b></td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!--                     <td class="inputRk"><b>8</b></td> -->
+<!--                     <td class="inputId"><b>ID</b></td> -->
+<!--                     <td class="inputSc"><b>Score</b></td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!--                     <td class="inputRk"><b>9</b></td> -->
+<!--                     <td class="inputId"><b>ID</b></td> -->
+<!--                     <td class="inputSc"><b>Score</b></td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!--                     <td class="inputRk"><b>10</b></td> -->
+<!--                     <td class="inputId"><b>ID</b></td> -->
+<!--                     <td class="inputSc"><b>Score</b></td> -->
+<!--                 </tr> -->
             </table>
     </div>
 </center>
