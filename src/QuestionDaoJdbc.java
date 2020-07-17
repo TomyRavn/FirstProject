@@ -44,21 +44,28 @@ public class QuestionDaoJdbc {
 
 	public ArrayList<QuestionVo> selectRecentQuestionList(String id) {
 		ArrayList<QuestionVo> questionList = new ArrayList<QuestionVo>();
-		String sql = "SELECT question_word FROM question WHERE question_writer = '" + id
-				+ "' ORDER BY question_reg_date DESC";
-
-		try (Connection conn = DriverManager.getConnection(url, user, password);
+		String sql = "SELECT question_word FROM question WHERE question_writer = ? ORDER BY question_reg_date DESC";
+		
+		try (
+				Connection conn = DriverManager.getConnection(url, user, password);
 				PreparedStatement pstmt = conn.prepareStatement(sql);
-				ResultSet rs = pstmt.executeQuery();) {
-
-//			pstmt.setString(1, id);
-
-			while (rs.next()) {
-				QuestionVo vo = new QuestionVo();
-				vo.setQuestionWord(rs.getString("question_word"));
-				questionList.add(vo);
+				){
+			
+			pstmt.setString(1, id);
+			
+			try (
+					ResultSet rs = pstmt.executeQuery();
+					){
+				while(rs.next()) {
+					QuestionVo vo = new QuestionVo();
+					vo.setQuestionWord(rs.getString("question_word"));
+					questionList.add(vo);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
