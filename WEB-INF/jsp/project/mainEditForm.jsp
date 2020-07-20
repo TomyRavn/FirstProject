@@ -8,21 +8,21 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/join.css">
 </head>
 <body>
-<form>  
+<form action ="${pageContext.request.contextPath}/memedit.do" method ="post">  
     <fieldset>
         <legend><h1>Edit</h1></legend>
         <ul>
             <li>
                 <label for="id">ID</label>
-                <input type="text" id="id" readonly></label>
+                <input type="text" id="id" name="memId" value="${mainVo.memId}" readonly></label>
             </li>
             <li>
                 <label for="pwd">Password</label>
-                <input type="password" id = "pwd"></label>
+                <input type="password" id = "pwd" name = "memPassword" value="${mainVo.memPassword}"></label>
             </li>
             <li>
                 <label for="nick">Nickname</label>
-                <input type="text" id="nick"></label>
+                <input type="text" id="nick" name = "memNickname" value="${mainVo.memNickname}"></label>
             </li>
         </ul>
     </fieldset>

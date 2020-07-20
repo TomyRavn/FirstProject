@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/join.css">
 </head>
 <body>
-<form>  
+
+<form action ="${pageContext.request.contextPath}/memadd.do" method ="post">  
     <fieldset>
         <legend><h1>JOIN</h1></legend>
         <ul>
@@ -20,7 +21,7 @@
             </li>
             <li>
                 <label for="pwd">Password</label>
-                <input type="password" id = "pwd" name="memPass"></label>
+                <input type="password" id = "pwd" name="memPassword"></label>
             </li>
             <li>
                 <label for="nick">Nickname</label>
