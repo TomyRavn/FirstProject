@@ -18,7 +18,7 @@ form{
     100%{opacity: 1;}
 }
 fieldset{
-    width:400px;
+    width:450px;
     margin-left:765px;
     margin-top:240px;  
     background-color: white;
@@ -29,16 +29,20 @@ ul{
     text-align: center;
 }
 ul legend{
-  font-style: italic;
+  font-family: fantasy;
+  font-weight: 900;
+  font-size: 40px;
 }
 ul li{
     margin:20px;
 }
 ul li label{
     width:120px;
-    padding-right:10px;
+    padding-right:20px;
     text-align:right;
     float:left;
+    font-size: 18px;
+    font-family: sans-serif;
 }
 input[type = "submit"]{
     width: 250px;

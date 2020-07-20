@@ -53,15 +53,15 @@
                 </tr>
                 <tr>
                     <th class="inputRk2"><b>Ranking</b></th>
-                    <th class="inputId2"><b>ID</b></th>
+                    <th class="inputId2"><b>Nickname</b></th>
                     <th class="inputSc2"><b>SCORE</b></th>
                 </tr>
                 <tr>
-                <c:foreach var="rank" items= "${rankingList}" begin="1" end="10" step="1">
-                    <td class="inputRk"><b><c:out value="${rank.u_ranking}"/></b></td>
-                    <td class="inputId"><b><c:out value="${rank.u_id}"/></b></td>
-                    <td class="inputSc"><b><c:out value="${rank.u_score}"></c:out></b></td>
-                 </c:foreach>
+                <c:forEach var="rankingList" items= "${rankingList}" begin="1" end="10" step="1">
+                    <td class="inputRk"><b><c:out value="${rankingList.uRanking}"/></b></td>
+                    <td class="inputId"><b><c:out value="${rankingList.uNickname}"/></b></td>
+                    <td class="inputSc"><b><c:out value="${rankingList.uScore}"/></b></td>
+                 </c:forEach>
                 </tr>
 <!--                 <tr> -->
 <!--                     <td class="inputRk"><b>2</b></td> -->

@@ -69,4 +69,43 @@ public class MainDaoJdbc {
 
 		return explain;
 	}
+
+	public int insertMember(MainVo vo) {
+		int num = 0;
+		String sql = "INSERT INTO member (mem_id, mem_password, mem_nickname) "
+				+ "values (?, ?, ?)";
+		try(
+				Connection conn = DriverManager.getConnection(url, user, password);
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				) { 
+
+			pstmt.setString(1, vo.getMemId()); 	
+			pstmt.setString(2, vo.getMemPassword()); 	
+			pstmt.setString(3, vo.getMemNickname()); 	
+			num = pstmt.executeUpdate();	
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
+
+	public int updateMember(MainVo vo) {
+		int num = 0;
+		String sql = "UPDATE member SET mem_id =?, mem_password =?, mem_nickname =? where mem_id =?";
+		try(
+				Connection conn = DriverManager.getConnection(url, user, password);
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				) { 
+
+			pstmt.setString(1, vo.getMemId()); 	
+			pstmt.setString(2, vo.getMemPassword()); 	
+			pstmt.setString(3, vo.getMemNickname()); 	
+			num = pstmt.executeUpdate();	
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
 }
