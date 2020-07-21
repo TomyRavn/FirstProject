@@ -95,15 +95,14 @@ public class QuestionDaoJdbc {
 		return num;
 	}
 
-	public QuestionVo extractQuestion(QuestionVo questionvo) {
+	public QuestionVo extractQuestion(int no) {
 		QuestionVo vo = null;
-		String sql = "SELECT question_word, question_explain FROM question WHERE question_word = ? and question_explain = ?";
+		String sql = "SELECT question_word, question_explain FROM question WHERE question_no = ?";
 
 		try (Connection conn = DriverManager.getConnection(url, user, password);
 				PreparedStatement pstmt = conn.prepareStatement(sql);) {
 
-			pstmt.setString(1, vo.getQuestionWord());
-			pstmt.setString(2, vo.getQuestionExplain());
+			pstmt.setInt(1, no);
 
 			try (ResultSet rs = pstmt.executeQuery();) {
 				if (rs.next()) {
@@ -112,7 +111,6 @@ public class QuestionDaoJdbc {
 
 					vo.setQuestionWord(rs.getString("question_word"));
 					vo.setQuestionExplain(rs.getString("question_explain"));
-					//vo.setMemNickname(rs.getString("mem_nickname"));
 				}
 			}
 		} catch (SQLException e) {
@@ -120,4 +118,24 @@ public class QuestionDaoJdbc {
 		}
 		return vo;
 	}
+	
+	public int maxQuestionNumber() {
+		int num = 0;
+		String sql = "SELECT max(question_no) FROM question";
+		
+		try (Connection conn = DriverManager.getConnection(url, user, password);
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();) {
+
+			if (rs.next()) {
+
+			num = rs.getInt("max(question_no)");
+			} 
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return num;
+	}
+	
 }
