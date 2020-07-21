@@ -5,7 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
+
 public class MainDaoJdbc {
+
 
 	{
 		try {
@@ -39,6 +42,33 @@ public class MainDaoJdbc {
 					vo.setMemNickname(rs.getString("mem_nickname"));
 				}
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
+	public MainVo selectMember(String memId) {
+		MainVo vo = null;
+		
+		String sql = "SELECT mem_id, mem_password, mem_nickname FROM member WHERE mem_id = ?";
+		
+		try(
+				Connection conn = DriverManager.getConnection(url, user, password);
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				) { 
+			
+			pstmt.setString(1, memId);
+			
+			try(ResultSet rs = pstmt.executeQuery();) {
+				if (rs.next()) { 
+					vo = new MainVo();
+					vo.setMemId(rs.getString("mem_id"));
+					vo.setMemPassword(rs.getString("mem_pass"));
+					vo.setMemNickname(rs.getString("mem_name"));
+					
+				} 
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
