@@ -1,7 +1,7 @@
 body{
     height: 1500;
     width: 1500;
-    background-image: url("../images/metin-seven_3d-animated-gif-animation_retro-pong-game-console.gif");
+    background-image: url('../images/metin-seven_3d-animated-gif-animation_retro-pong-game-console.gif');
     background-size : 1920px 1200px;
     background-repeat: no-repeat;
     background-position: 0% 25%;
@@ -19,7 +19,7 @@ form{
 }
 fieldset{
     width:450px;
-    margin-left:765px;
+    margin-left:770px;
     margin-top:240px;  
     background-color: white;
     border:3px solid black;
@@ -45,8 +45,8 @@ ul li label{
     font-family: sans-serif;
 }
 input[type = "submit"]{
-    width: 250px;
+   width: 200px;
     height: 30px;
     margin-top: 15px;
-    margin-left: 845px;
+    margin-left: 900px;
 }

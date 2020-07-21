@@ -15,7 +15,7 @@ public class MainAddServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		req.getRequestDispatcher("/WEB-INF/jsp/project/memAddForm.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/jsp/project/mainAddForm.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -25,13 +25,23 @@ public class MainAddServlet extends HttpServlet{
 		
 		MainVo vo = new MainVo();
 		
+		String memId = req.getParameter("memId");
+		String memPassword = req.getParameter("memPassword");
+		String memNickname = req.getParameter("memNickname");
+		int num = 0;
+		
+		if(!(memId.equals("")) && !(memPassword.equals("") && !(memNickname.equals("")))) {
 		vo.setMemId(req.getParameter("memId"));
 		vo.setMemPassword(req.getParameter("memPassword"));
 		vo.setMemNickname(req.getParameter("memNickname"));
 		
-		int num = mainDao.insertMember(vo); 
-		
+		num = mainDao.insertMember(vo); 
+		resp.sendRedirect(req.getContextPath() + "/memadd.do");			
+		}
+		else {
+		resp.sendRedirect(req.getContextPath() + "/main.do");			
+		}
+
 		System.out.println(num + " 명 회원 추가");
-		resp.sendRedirect(req.getContextPath() + "/main.do");
 	}
 }
