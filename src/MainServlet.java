@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MainServlet extends HttpServlet{
 	
 	MainDaoJdbc mainDao = new MainDaoJdbc();
+	QuestionDaoJdbc questionDao = new QuestionDaoJdbc();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

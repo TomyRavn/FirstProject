@@ -5,7 +5,6 @@ import java.util.Date;
 public class RankingVo {
 
 	private String uId;
-	private int uRanking;
 	private String uNickname;
 	private int uScore;
 	private Date uRegDate;
@@ -15,12 +14,6 @@ public class RankingVo {
 	}
 	public void setuId(String uId) {
 		this.uId = uId;
-	}
-	public int getuRanking() {
-		return uRanking;
-	}
-	public void setuRanking(int uRanking) {
-		this.uRanking = uRanking;
 	}
 	public String getuNickname() {
 		return uNickname;

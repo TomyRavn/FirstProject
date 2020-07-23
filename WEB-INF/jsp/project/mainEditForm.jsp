@@ -14,15 +14,15 @@
         <ul>
             <li>
                 <label for="id">ID</label>
-                <input type="text" id="id" name="memId" value="${mainVo.memId}" readonly></label>
+                <label><input type="text" id="id" name="memId" value="${mainVo.memId}" disabled></label>
             </li>
             <li>
                 <label for="pwd">Password</label>
-                <input type="password" id = "pwd" name = "memPassword" value="${mainVo.memPassword}"></label>
+                <label><input type="password" id = "pwd" name = "memPassword" value="${mainVo.memPassword}"></label>
             </li>
             <li>
                 <label for="nick">Nickname</label>
-                <input type="text" id="nick" name = "memNickname" value="${mainVo.memNickname}"></label>
+                <label><input type="text" id="nick" name = "memNickname" value="${mainVo.memNickname}"></label>
             </li>
         </ul>
     </fieldset>

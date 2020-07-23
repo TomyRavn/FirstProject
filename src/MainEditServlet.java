@@ -14,10 +14,10 @@ public class MainEditServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String no = req.getParameter("memId");
-		MainVo vo = MainDaoJdbc.selectMember(no);
-		
+		MainVo vo = mainDao.selectMember(no);
+
 		req.setAttribute("MainVo", vo);
-		req.getRequestDispatcher("/WEB-INF/jsp/project/mainEditForm.jsp");
+		req.getRequestDispatcher("/WEB-INF/jsp/project/mainEditForm.jsp").forward(req, resp);
 	}
 	
 	@Override

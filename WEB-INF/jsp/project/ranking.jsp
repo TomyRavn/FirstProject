@@ -42,7 +42,7 @@
         <div class="div1">
             <br/><br/>
             <table id = "p">
-                <th><h1>당신은 상위 XX%의 지식인입니다.</h1></th>
+                <th><h1>당신은 상위 ${RankingVo.uScore/RankingVo*100} %의 지식인입니다.</h1></th>
             </table>
         </div>
 
@@ -56,13 +56,16 @@
                     <th class="inputId2"><b>Nickname</b></th>
                     <th class="inputSc2"><b>SCORE</b></th>
                 </tr>
+<%--                 <c:forEach var="rank" items= "${rankingList}"> --%>
+                <c:forEach begin="0" end="9" varStatus="status">
                 <tr>
-                <c:forEach var="rankingList" items= "${rankingList}" begin="1" end="10" step="1">
-                    <td class="inputRk"><b><c:out value="${rankingList.uRanking}"/></b></td>
-                    <td class="inputId"><b><c:out value="${rankingList.uNickname}"/></b></td>
-                    <td class="inputSc"><b><c:out value="${rankingList.uScore}"/></b></td>
-                 </c:forEach>
+                	<td class="inputRk"><b>${status.count}</b></td>
+<%-- 					<td>${questionList[status.count-1].questionWord}</td> --%>
+<%--                     <td class="inputRk"><b>${rank.uRanking}</b></td> --%>
+                    <td class="inputId"><b>${rankingList[status.count-1].uNickname}</b></td>
+                    <td class="inputSc"><b>${rankingList[status.count-1].uScore}</b></td>
                 </tr>
+                 </c:forEach>
 <!--                 <tr> -->
 <!--                     <td class="inputRk"><b>2</b></td> -->
 <!--                     <td class="inputId"><b>ID</b></td> -->
@@ -111,7 +114,7 @@
             </table>
     </div>
 </center>
-    </div>
+   
     
 </body>
 </html>

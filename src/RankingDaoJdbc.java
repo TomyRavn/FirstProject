@@ -23,7 +23,7 @@ public class RankingDaoJdbc {
 
 	public ArrayList<RankingVo> selectRanking() {
 		ArrayList<RankingVo> ranking = new ArrayList<RankingVo>();
-		String sql = "SELECT u_id, u_ranking, u_nickname, u_score, u_reg_date FROM RANKING ORDER BY u_reg_date";
+		String sql = "SELECT u_id, u_nickname, u_score, u_reg_date FROM RANKING ORDER BY u_score desc, u_reg_date desc";
 
 		try(
 				Connection conn = DriverManager.getConnection(url,user,password);
@@ -35,7 +35,6 @@ public class RankingDaoJdbc {
 
 				RankingVo vo = new RankingVo();
 				vo.setuId(rs.getString("u_id"));
-				vo.setuRanking(rs.getInt("u_ranking"));
 				vo.setuNickname(rs.getString("u_nickname"));
 				vo.setuScore(rs.getInt("u_score"));
 				vo.setuRegDate(rs.getTimestamp("u_reg_date"));
@@ -51,15 +50,14 @@ public class RankingDaoJdbc {
 	
 	public int insertRanking(RankingVo vo) {
 		int num = 0;
-		String sql = "INSERT INTO rank (u_ranking, u_nickname, u_score) " + "VALUES (?, ?, ?)";
+		String sql = "INSERT INTO rank (u_nickname, u_score) " + "VALUES (?, ?)";
 		
 		try(
 				Connection conn = DriverManager.getConnection(url,user,password);
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				){
-			pstmt.setInt(1, vo.getuRanking());
-			pstmt.setString(2, vo.getuNickname());
-			pstmt.setInt(3, vo.getuScore());
+			pstmt.setString(1, vo.getuNickname());
+			pstmt.setInt(2, vo.getuScore());
 			num = pstmt.executeUpdate();
 		
 		}
@@ -70,16 +68,15 @@ public class RankingDaoJdbc {
 	}
 	public int udateRanking(RankingVo vo) {
 		int num = 0;
-		String sql = "UPDATE rank SET u_ranking = ?, u_nickname = ?, u_score = ? where u_id = ? ";
+		String sql = "UPDATE rank SET u_nickname = ?, u_score = ? where u_id = ? ";
 		
 		try(
 				Connection conn = DriverManager.getConnection(url,user,password);
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				){
 			
-			pstmt.setInt(1, vo.getuRanking());
-			pstmt.setString(2, vo.getuNickname());
-			pstmt.setInt(3, vo.getuScore());
+			pstmt.setString(1, vo.getuNickname());
+			pstmt.setInt(2, vo.getuScore());
 			num = pstmt.executeUpdate();
 		
 		}
