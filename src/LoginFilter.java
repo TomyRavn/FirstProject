@@ -23,7 +23,7 @@ public class LoginFilter implements Filter{
 
 		System.out.println("LoginFilter의 init 실행!");
 
-		//		whiteList.add();
+				whiteList.add("/login.do");
 		//		whiteList.add();
 		//		whiteList.add();
 		//		whiteList.add();
@@ -48,9 +48,9 @@ public class LoginFilter implements Filter{
 		if(whiteList.contains(reqPath) == false) {
 
 			HttpSession session = req.getSession();
-			MainVo loginVo = (MainVo)session.getAttribute("loginUser");
+			String loginId = (String)session.getAttribute("loginUser");
 
-			if(loginVo == null) {
+			if(loginId == null) {
 				resp.sendRedirect(req.getContextPath() + "/login.do");
 				return;
 			}
