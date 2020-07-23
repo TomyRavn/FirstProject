@@ -35,13 +35,7 @@
     <div class="container">
         <center>
             <div id="wrap">
-                <h1 id=q>문제 들어갈 곳</h1>
-	            <table>
-                    <tr>
-                        <td>${status.count}</td>
-                        <td>${questionList[status.count-1].questionWord}</td>
-                    </tr>
-                </table>
+                <p id=q>- 문제 : ${questionVo.questionExplain}</p>
                 <input id='my' placeholder="답을 입력하세요"/>
                 <br><br><br><br><br>
                 <input type="hidden" id='ans' value='' />
@@ -49,5 +43,11 @@
             </div>
         </center>
     </div>
+    <script>
+    	var btn = document.querySelector('#aaa');
+    	btn.onclick = function() {
+			location.reload();
+		}
+    </script>
 </body>
 </html>
