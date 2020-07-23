@@ -36,7 +36,7 @@
         <center>
             <div id="wrap">
                 <h1 id=q>문제 들어갈 곳</h1>
-	<table>
+	            <table>
                     <tr>
                         <td>${status.count}</td>
                         <td>${questionList[status.count-1].questionWord}</td>
