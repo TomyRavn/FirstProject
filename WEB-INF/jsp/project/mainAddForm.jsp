@@ -17,15 +17,15 @@
         <ul>
             <li>
                 <label for="id">ID</label>
-                <input type="text" id="id" name="memId"></label>
+                <label><input type="text" id="id" name="memId"></label>
             </li>
             <li>
                 <label for="pwd">Password</label>
-                <input type="password" id = "pwd" name="memPassword"></label>
+                <label><input type="password" id = "pwd" name="memPassword"></label>
             </li>
             <li>
                 <label for="nick">Nickname</label>
-                <input type="text" id="nick" name="memNickname"></label>
+                <label><input type="text" id="nick" name="memNickname"></label>
             </li>
         </ul>
     </fieldset>
