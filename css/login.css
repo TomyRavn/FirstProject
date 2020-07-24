@@ -47,8 +47,14 @@ ul li label{
     font-family: sans-serif;
 }
 input[type = "submit"]{
-    width: 200px;
+    width: 180px;
     height: 30px;
     margin-top: 15px;
-    margin-left: 900px;
+    margin-left: 820px;
+}
+input[type = "button"]{
+    width:180px;
+    height:30px;
+    margin-left:20px;
+    margin-top: 15px;
 }

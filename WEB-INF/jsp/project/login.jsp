@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LogIn</title>
 <%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css"/> --%>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/login.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/login.css"/>
 </head>
 <body>
 
@@ -26,6 +26,7 @@
         </ul>
     </fieldset>
     <input type = "submit" value = "LogIn">
+    <input type = "button" value = "Join" onclick="location.href='./memadd.do'">
 </form>
 </body>
 </html>
