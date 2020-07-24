@@ -35,36 +35,27 @@
     <div class="container">
         <center>
             <div id="wrap">
+			<form action="${pageContext.request.contextPath}/main.do" method=post>
                 <p id=q>- 문제 : ${questionVo.questionExplain}</p>
-                <input id='my' placeholder="답을 입력하세요"/>
-                <br><br><br><br><br>
-                <input type="hidden" id='ans' value='${questionVo.questionWord}' />
-                <button id='aaa'>다음문제</button>
+                <input name="myAns" placeholder="답을 입력하세요"/>
                 
-            </div>
+                <br><br><br><br><br>
+               
+                <button id='aaa' type="submit">다음문제</button>
+                
+                <br /><br />
+
+			        	정답
+			    	<input style="font-size: 20px;" id='correct' value="${countVo.corCount}" disabled/>
+			    	<br />
+			        	오답
+			    	<input style="font-size: 20px;" id='error' value="${countVo.errCount}" disabled/>
+			    	<br />
+			        	전체
+			    	<input style="font-size: 20px;" id='total' value="${countVo.totCount}" disabled/>
+			</form>  
+			</div>
         </center>
     </div>
-    <script>
-    	var btn = document.querySelector('#aaa');
-    	btn.onclick = function() {
-    		check();
-			location.reload();
-		}
-    	
-    	function check(){
-    		var my = document.querySelector('#my').value;
-            var ans = document.querySelector('#ans').value
-            
-            if(ans == my){
-                alert('정답');
-            }
-            else if(my == ''){
-                alert('값을 입력하세요');
-            }
-            else{
-                alert('오답');
-            }
-    	}
-    </script>
 </body>
 </html>
