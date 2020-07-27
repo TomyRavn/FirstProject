@@ -15,7 +15,8 @@
     <center class="cent">
     <div>
         <ul class="memName">
-            <li><a href="#" class="nameLink">${loginNickname}</a> 회원님, 안녕하세요.</li>
+            <li><a href="<%=request.getContextPath()%>/memEdit.do" class="nameLink">${loginNickname}</a> 회원님, 안녕하세요.</li>
+            <li><button type="button" onclick="location.href='./logout.do'">로그아웃</button>
         </ul>
         <ul class="bar">
             <a href="<%=request.getContextPath()%>/main.do"><img class="logo" src="<%=request.getContextPath()%>/images/logo.png"></a>

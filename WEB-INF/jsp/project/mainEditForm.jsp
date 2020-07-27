@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/join.css">
 </head>
 <body>
-<form action ="${pageContext.request.contextPath}/memedit.do" method ="post">  
+<form action ="${pageContext.request.contextPath}/memEdit.do" method ="post">  
     <fieldset>
         <legend><h1>Edit</h1></legend>
         <ul>

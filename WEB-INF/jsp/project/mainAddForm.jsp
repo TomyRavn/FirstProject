@@ -23,7 +23,7 @@
 				<li><label>별명 <input type="text" id="nick" name="memNickname"></label></li>
 				<li class="btnCon">
 					<button type="submit" id="joinBtn" class="btn btn-success btn-lg">가입</button>
-					<button id="cancelBtn" class="btn btn-danger btn-lg" onclick="location.href='./login.do'">취소</button>
+					<button id="cancelBtn" class="btn btn-danger btn-lg"><a href="${pageContext.request.contextPath}/login.do">취소</a></button>
 				</li>
 			</ul>
 		</form>
