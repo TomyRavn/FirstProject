@@ -1,35 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOIN</title>
-    <!-- <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css"/> -->
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/join.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>회원가입</title>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/bootstrap.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/join.css">
 </head>
 <body>
 
-<form action ="${pageContext.request.contextPath}/memadd.do" method ="post">  
-    <fieldset>
-        <legend><h1>JOIN</h1></legend>
-        <ul>
-            <li>
-                <label for="id">ID</label>
-                <label><input type="text" id="id" name="memId"></label>
-            </li>
-            <li>
-                <label for="pwd">Password</label>
-                <label><input type="password" id = "pwd" name="memPassword"></label>
-            </li>
-            <li>
-                <label for="nick">Nickname</label>
-                <label><input type="text" id="nick" name="memNickname"></label>
-            </li>
-        </ul>
-    </fieldset>
-    <input type = "submit" value = "Join">
-</form>
+	<div class="container">
+		<form action="${pageContext.request.contextPath}/memAdd.do" method="post">
+			<ul>
+				<h1>회 원 가 입</h1>
+			</ul>
+			<ul class="labelCon">
+				<li><label>아이디 <input type="text" id="id" name="memId"></label></li>
+				<li><label>비밀번호 <input type="password" id="pwd" name="memPassword"></label></li>
+				<li><label>별명 <input type="text" id="nick" name="memNickname"></label></li>
+				<li class="btnCon">
+					<button type="submit" id="joinBtn" class="btn btn-success btn-lg">가입</button>
+					<button id="cancelBtn" class="btn btn-danger btn-lg" onclick="location.href='./login.do'">취소</button>
+				</li>
+			</ul>
+		</form>
+	</div>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
 </body>
 </html>

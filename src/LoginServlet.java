@@ -31,13 +31,11 @@ public class LoginServlet extends HttpServlet {
 
 		MainVo loginVo = mainDao.selectLoginMember(vo);
 
-		if (loginVo == null) { // 로그인 실패(입력한 ID/PW와 일치하는 회원이 없는 경우)
-//				out.print("login fail");
+		if (loginVo == null) {
 			resp.sendRedirect(req.getContextPath() + "/login.do");
-		} else { // 로그인 성공(입력한 ID/PW와 일치하는 회원이 있는 경우)
-			// out.print("login success");
-			HttpSession session = req.getSession(); // 현재 요청이 속한 세션 객체 가져오기
-			session.setAttribute("loginNickname", loginVo.getMemNickname()); // 로그인 한 사람의 정보가 담긴 객체를 "loginUser"라는 이름으로 세션에 저장
+		} else {
+			HttpSession session = req.getSession();
+			session.setAttribute("loginNickname", loginVo.getMemNickname());
 			session.setAttribute("loginUser", loginVo.getMemId());
 
 			resp.sendRedirect(req.getContextPath() + "/main.do");

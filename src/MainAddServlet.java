@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/memadd.do")
+@WebServlet("/memAdd.do")
 public class MainAddServlet extends HttpServlet{
 
 	MainDaoJdbc mainDao = new MainDaoJdbc();
@@ -31,15 +31,17 @@ public class MainAddServlet extends HttpServlet{
 		int num = 0;
 		
 		if(!(memId.equals("")) && !(memPassword.equals("") && !(memNickname.equals("")))) {
-		vo.setMemId(req.getParameter("memId"));
-		vo.setMemPassword(req.getParameter("memPassword"));
-		vo.setMemNickname(req.getParameter("memNickname"));
+			vo.setMemId(memId);
+			vo.setMemPassword(memPassword);
+			vo.setMemNickname(memNickname);
 		
-		num = mainDao.insertMember(vo); 
-		resp.sendRedirect(req.getContextPath() + "/memadd.do");			
-		}
-		else {
-		resp.sendRedirect(req.getContextPath() + "/main.do");			
+			num = mainDao.insertMember(vo);
+			
+			if(num <= 0) resp.sendRedirect(req.getContextPath() + "/memAdd.do"); 
+			else resp.sendRedirect(req.getContextPath() + "/login.do");
+			
+		}else {
+			resp.sendRedirect(req.getContextPath() + "/memAdd.do");			
 		}
 
 		System.out.println(num + " 명 회원 추가");
