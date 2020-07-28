@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("loginNickname", loginVo.getMemNickname());
 			session.setAttribute("loginUser", loginVo.getMemId());
 
-			resp.sendRedirect(req.getContextPath() + "/main.do");
+			resp.sendRedirect(req.getContextPath() + "/subMain.do");
 
 		}
 

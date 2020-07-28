@@ -1,9 +1,8 @@
-
-
 public class MainVo {
 	private String memId;
 	private String memPassword;
 	private String memNickname;
+	
 	
 	public String getMemId() {
 		return memId;
@@ -23,4 +22,5 @@ public class MainVo {
 	public void setMemNickname(String memNickname) {
 		this.memNickname = memNickname;
 	}
+
 }

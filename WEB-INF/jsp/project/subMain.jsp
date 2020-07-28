@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,13 +7,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>문제 풀기</title>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/navi.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/main.css">
 </head>
 <body>
-    <!--<img scr="images/tetris.jpg"> -->
     <center class="cent">
     <div>
         <ul class="memName">
@@ -22,10 +20,10 @@
             <li><button type="button" onclick="location.href='./logout.do'">로그아웃</button>
         </ul>
         <ul class="bar">
-            <a href="<%=request.getContextPath()%>/subMain.do"><img class="logo" src="<%=request.getContextPath()%>/images/logo.png"></a>
+            <a href="<%=request.getContextPath()%>/main.do"><img class="logo" src="<%=request.getContextPath()%>/images/logo.png"></a>
             <li><a href="<%=request.getContextPath()%>/ranking.do" class="button">랭킹</a></li>
             <li><a href="<%=request.getContextPath()%>/add.do" class="button">문제 출제</a></li>
-            <li><a href="<%=request.getContextPath()%>/subMain.do" class="button">문제 리스트</a></li>
+            <li><a href="<%=request.getContextPath()%>/main.do" class="button">문제 리스트</a></li>
         </ul>
     </div>
         <hr>
@@ -38,30 +36,18 @@
     <div class="container">
         <center>
             <div id="wrap">
-				<form action="${pageContext.request.contextPath}/main.do" method=post>
-					<div class="questionCon">
-                		<p id=q>- 문제 : ${questionVo.questionExplain}</p>
-                	</div>
-                	<input class="myAns" name="myAns" placeholder="답을 입력하세요"/>
-                
-                	<br><br><br><br><br>
                
-                	<button id='aaa' type="submit">다음문제</button>
+               	<form action="${pageContext.request.contextPath}/subMain.do" method=post>
+                	<button id='bbb'>문 제 풀 기</button>
+                </form>
                 
-                	<br /><br />
+                <p><span style="color: red;">제한 시간</span> 내에 최대한 <span style="color: red;">많은 문제</span>를 풀어야 합니다.</p>
+                <p>문제는 <span style="color: blue;">단어와 설명으로 구성</span>되어 있으며, 설명을 읽고, 연상되는 단어를 맞추면 됩니다.</p>
 
-			    	<ul class="textBox">
-			        	<li>
-			        		<label>정답 <input id='correct' value="${countVo.corCount}" disabled/></label>
-			    		</li>
-			        	<li>
-			        		<label>오답 <input id='error' value="${countVo.errCount}" disabled/></label>
-			    		</li>
-			        	<li>
-			        		<label>전체 <input id='total' value="${countVo.totCount}" disabled/></label>
-			        	</li>
-                	</ul>
-				</form>  
+                <div class="imgCon"></div>
+
+                <p style="color: red; font-weight: bold;">※ 주의 : 단어를 적지 않고 넘겼을 경우에도 오답으로 책정됩니다.</p>
+
 			</div>
         </center>
     </div>

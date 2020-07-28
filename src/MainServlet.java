@@ -16,9 +16,9 @@ public class MainServlet extends HttpServlet {
 
 	MainDaoJdbc mainDao = new MainDaoJdbc();
 	QuestionDaoJdbc questionDao = new QuestionDaoJdbc();
-	ArrayList<Integer> numArr = new ArrayList<Integer>();
-	CountVo countVo = new CountVo();
-
+	
+	MainVo mainVo = new MainVo();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -28,6 +28,10 @@ public class MainServlet extends HttpServlet {
 		QuestionVo questionVo = questionDao.extractQuestion(no);
 		boolean isDuplicate = false;
 
+		
+		HttpSession session = req.getSession();
+		ArrayList<Integer> numArr = (ArrayList<Integer>) session.getAttribute("numArr");
+		
 		for (int i = 0; i < numArr.size(); i++) {
 			if (no == numArr.get(i)) {
 				isDuplicate = true;
@@ -42,7 +46,8 @@ public class MainServlet extends HttpServlet {
 				no = (int) (Math.random() * num + 1);
 				questionVo = questionDao.extractQuestion(no);
 
-				isEmpty = false;				isDuplicate = false;
+				isEmpty = false;				
+				isDuplicate = false;
 
 				if (questionVo == null) {
 					isEmpty = true;
@@ -59,9 +64,8 @@ public class MainServlet extends HttpServlet {
 
 		numArr.add(no);
 
-		req.setAttribute("questionVo", questionVo);
-		HttpSession session = req.getSession();
 		session.setAttribute("questionVo", questionVo);
+		session.setAttribute("numArr", numArr);
 		
 		req.getRequestDispatcher("/WEB-INF/jsp/project/main.jsp").forward(req, resp);
 	}
@@ -72,6 +76,7 @@ public class MainServlet extends HttpServlet {
 		String myAns = req.getParameter("myAns");
 		HttpSession session = req.getSession();
 		
+		CountVo countVo = (CountVo) session.getAttribute("countVo");
 		QuestionVo questionVo = (QuestionVo) session.getAttribute("questionVo");
 		String ans = questionVo.getQuestionWord();
 		

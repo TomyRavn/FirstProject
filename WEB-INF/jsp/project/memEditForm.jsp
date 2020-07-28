@@ -22,7 +22,7 @@
 				<li><label>별명 <input type="text" name="memNickname" value='${mainVo.memNickname}'></label></li>
 				<li class="btnCon">
 					<button type="submit" id="joinBtn" class="btn btn-success btn-lg">수정</button>
-					<button type="button" id="cancelBtn" class="btn btn-danger btn-lg"><a href="${pageContext.request.contextPath}/main.do">취소</a></button>
+					<button type="button" id="cancelBtn" class="btn btn-danger btn-lg"><a href="${pageContext.request.contextPath}/subMain.do">취소</a></button>
 				</li>
 			</ul>
 		</form>

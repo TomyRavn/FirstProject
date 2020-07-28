@@ -15,7 +15,6 @@ public class LogoutServlet extends HttpServlet{
 		
 		session.setAttribute("loginUser", null);
 		session.setAttribute("loginNickname", null);
-		session.setAttribute("countVo", null);
 		
 		resp.sendRedirect(req.getContextPath() + "/login.do");
 	}

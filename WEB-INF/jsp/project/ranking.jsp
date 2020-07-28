@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ranking_Score</title>
+        <title>랭킹</title>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/navi.css"/>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/result.css"/>
 </head>
@@ -19,10 +19,10 @@
             <li><button type="button" onclick="location.href='./logout.do'">로그아웃</button>
         </ul>
         <ul class="bar">
-            <a href="<%=request.getContextPath()%>/main.do"><img class="logo" src="<%=request.getContextPath()%>/images/logo.png"></a>
+            <a href="<%=request.getContextPath()%>/subMain.do"><img class="logo" src="<%=request.getContextPath()%>/images/logo.png"></a>
             <li><a href="<%=request.getContextPath()%>/ranking.do" class="button">랭킹</a></li>
             <li><a href="<%=request.getContextPath()%>/add.do" class="button">문제 출제</a></li>
-            <li><a href="<%=request.getContextPath()%>/main.do" class="button">문제 리스트</a></li>
+            <li><a href="<%=request.getContextPath()%>/subMain.do" class="button">문제 리스트</a></li>
         </ul>
     </div>
         <hr>

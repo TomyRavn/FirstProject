@@ -22,13 +22,13 @@
     <div>
         <ul class="memName">
             <li><a href="<%=request.getContextPath()%>/memEdit.do" class="nameLink">${loginNickname}</a> 회원님, 안녕하세요.</li>
-            <li><button type="button" onclick="location.href='./logout.do'">로그아웃</button>
+            <li><button type="button" onclick="location.href='./logout.do'" style="color: black;">로그아웃</button>
         </ul>
         <ul class="bar">
-            <a href="<%=request.getContextPath()%>/main.do"><img class="logo" src="<%=request.getContextPath()%>/images/logo.png"></a>
+            <a href="<%=request.getContextPath()%>/subMain.do"><img class="logo" src="<%=request.getContextPath()%>/images/logo.png"></a>
             <li><a href="<%=request.getContextPath()%>/ranking.do" class="button">랭킹</a></li>
             <li><a href="<%=request.getContextPath()%>/add.do" class="button">문제 출제</a></li>
-            <li><a href="<%=request.getContextPath()%>/main.do" class="button">문제 리스트</a></li>
+            <li><a href="<%=request.getContextPath()%>/subMain.do" class="button">문제 리스트</a></li>
         </ul>
     </div>
         <hr>

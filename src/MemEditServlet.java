@@ -46,7 +46,7 @@ public class MemEditServlet extends HttpServlet{
 			if(num <= 0) resp.sendRedirect(req.getContextPath() + "/memEdit.do"); 
 			else {
 				session.setAttribute("loginNickname", vo.getMemNickname());
-				resp.sendRedirect(req.getContextPath() + "/main.do");
+				resp.sendRedirect(req.getContextPath() + "/subMain.do");
 			}
 		}else {
 			resp.sendRedirect(req.getContextPath() + "/memEdit.do");			
