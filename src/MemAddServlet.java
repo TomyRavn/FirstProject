@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/memAdd.do")
-public class MainAddServlet extends HttpServlet{
+public class MemAddServlet extends HttpServlet{
 
 	MainDaoJdbc mainDao = new MainDaoJdbc();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		req.getRequestDispatcher("/WEB-INF/jsp/project/mainAddForm.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/jsp/project/memAddForm.jsp").forward(req, resp);
 	}
 	
 	@Override

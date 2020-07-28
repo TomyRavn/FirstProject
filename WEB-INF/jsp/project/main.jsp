@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>문제 풀기</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/navi.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/main.css">
     

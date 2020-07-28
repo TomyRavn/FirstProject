@@ -47,6 +47,7 @@ public class MainDaoJdbc {
 		}
 		return vo;
 	}
+	
 	public MainVo selectMember(String memId) {
 		MainVo vo = null;
 		
@@ -63,8 +64,8 @@ public class MainDaoJdbc {
 				if (rs.next()) { 
 					vo = new MainVo();
 					vo.setMemId(rs.getString("mem_id"));
-					vo.setMemPassword(rs.getString("mem_pass"));
-					vo.setMemNickname(rs.getString("mem_name"));
+					vo.setMemPassword(rs.getString("mem_password"));
+					vo.setMemNickname(rs.getString("mem_nickname"));
 					
 				} 
 			}
@@ -122,15 +123,15 @@ public class MainDaoJdbc {
 
 	public int updateMember(MainVo vo) {
 		int num = 0;
-		String sql = "UPDATE member SET mem_id =?, mem_password =?, mem_nickname =? where mem_id =?";
+		String sql = "UPDATE member SET mem_password =?, mem_nickname =? WHERE mem_id =?";
 		try(
 				Connection conn = DriverManager.getConnection(url, user, password);
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				) { 
 
-			pstmt.setString(1, vo.getMemId()); 	
-			pstmt.setString(2, vo.getMemPassword()); 	
-			pstmt.setString(3, vo.getMemNickname()); 	
+			pstmt.setString(1, vo.getMemPassword()); 	
+			pstmt.setString(2, vo.getMemNickname()); 	
+			pstmt.setString(3, vo.getMemId()); 	
 			num = pstmt.executeUpdate();	
 			
 		} catch (SQLException e) {

@@ -18,12 +18,12 @@
 				<h1>회 원 가 입</h1>
 			</ul>
 			<ul class="labelCon">
-				<li><label>아이디 <input type="text" id="id" name="memId"></label></li>
-				<li><label>비밀번호 <input type="password" id="pwd" name="memPassword"></label></li>
-				<li><label>별명 <input type="text" id="nick" name="memNickname"></label></li>
+				<li><label>아이디 <input type="text" name="memId"></label></li>
+				<li><label>비밀번호 <input type="password" name="memPassword"></label></li>
+				<li><label>별명 <input type="text" name="memNickname"></label></li>
 				<li class="btnCon">
 					<button type="submit" id="joinBtn" class="btn btn-success btn-lg">가입</button>
-					<button id="cancelBtn" class="btn btn-danger btn-lg"><a href="${pageContext.request.contextPath}/login.do">취소</a></button>
+					<button type="button" id="cancelBtn" class="btn btn-danger btn-lg"><a href="${pageContext.request.contextPath}/login.do">취소</a></button>
 				</li>
 			</ul>
 		</form>
