@@ -30,6 +30,7 @@ body{
 	background-color: red;
 }
 #bbb{
+	margin-top:10px;
 	font-size: 40px; background: orange; font-family: 궁서체;
 }
 #bbb:hover{
