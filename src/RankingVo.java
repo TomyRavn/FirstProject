@@ -1,14 +1,18 @@
 
-
-import java.util.Date;
-
 public class RankingVo {
 
+	
+	private int uNo;
 	private String uId;
 	private String uNickname;
 	private int uScore;
-	private Date uRegDate;
 	
+	public int getuNo() {
+		return uNo;
+	}
+	public void setuNo(int uNo) {
+		this.uNo = uNo;
+	}
 	public String getuId() {
 		return uId;
 	}
@@ -27,12 +31,5 @@ public class RankingVo {
 	public void setuScore(int uScore) {
 		this.uScore = uScore;
 	}
-	public Date getuRegDate() {
-		return uRegDate;
-	}
-	public void setuRegDate(Date uRegDate) {
-		this.uRegDate = uRegDate;
-	}
-	
 
 }
