@@ -98,3 +98,14 @@ body{
     margin-left: 200px;
     margin-top: 100px;
 }
+.failMessage{
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Nanum Pen Script', cursive;
+}
+#alert{
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 60px;
+    width: 400px;
+}

@@ -1,20 +1,9 @@
 package kr.co.blockQuiz;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 public class MainVo {
 	
-	@NotBlank
-	@Size(min = 2, max = 20)
 	private String memId;
-	
-	@NotBlank
-	@Size(min = 2, max = 20)
 	private String memPassword;
-	
-	@NotBlank
-	@Size(min = 2, max = 30)
 	private String memNickname;
 	
 	

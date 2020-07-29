@@ -1,18 +1,9 @@
 package kr.co.blockQuiz;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 public class QuestionVo {
 	
-	@NotBlank
-	@Size(min = 2, max = 20)
 	private String questionWord;
-	
-	@NotBlank
-	@Size(min = 2, max = 400)
 	private String questionExplain;
-	
 	private String questionWriter;
 	
 	

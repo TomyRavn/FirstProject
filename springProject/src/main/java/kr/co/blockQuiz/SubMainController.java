@@ -1,6 +1,10 @@
 package kr.co.blockQuiz;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller("/subMain.do")
 public class SubMainController {
@@ -123,11 +128,29 @@ public class SubMainController {
 		MainVo loginVo = mainService.selectLoginMember(vo);
 
 		if (loginVo == null) {
+			
+			try {
+				Thread.sleep(300);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
 			return "redirect:/login.do";
 		} else {
 			session.setAttribute("loginVo", loginVo);
 			return "redirect:/subMain.do";
 		}
+	}
+	
+	@RequestMapping("/login.do")
+	@ResponseBody
+	public Map<String, Object> data(MainVo vo) {
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		MainVo loginVo = mainService.selectLoginMember(vo);
+		map.put("loginVo", loginVo);
+		
+		return map;
 	}
 
 	// logout

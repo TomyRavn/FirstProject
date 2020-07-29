@@ -33,8 +33,11 @@
                             <li>ID <input type="text" id="id" name="memId" class="textBox" /> </li>
                             <li>PassWord <input type="password" id="pw" name="memPassword" class="textBox" /> </li>
                         </label>
+                        <div id="alert" class="alert alert-danger fade in" style="display:none;">
+                         	<p class="failMessage">로그인실패</p>
+                        </div>
                     </ul>
-                    <button id="loginBtn" class="btn btn-warning" type="submit">로그인</button>
+                    <button id="loginBtn" class="btn btn-warning" type="submit" onclick="check()">로그인</button>
                </form>
                     <button id="joinBtn" class="btn btn-danger" onclick="location.href='./memAdd.do'">회원가입</button>
                 </fieldset>
@@ -46,6 +49,25 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+    <script>
+    	let isSuccess = false;
+    	function check(){
+    		$.ajax({
+				url : "${pageContext.request.contextPath}/login.do",
+				dataType : "json"
+			}).done(function(data) {
+				if(data.loginVo){
+					isSuccess = true;	
+				}else{
+    				isSuccess = false;
+				}
+			}).fail(function(jqXHR, textStatus) {
+				alert("Request failed: " + textStatus);
+			});
+    		
+    		if(!isSuccess) $('#alert').show();
+    	}
+    </script>
 
 </body>
 </html>
