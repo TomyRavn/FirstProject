@@ -125,8 +125,7 @@ public class SubMainController {
 		if (loginVo == null) {
 			return "redirect:/login.do";
 		} else {
-			session.setAttribute("loginNickname", loginVo.getMemNickname());
-			session.setAttribute("loginUser", loginVo.getMemId());
+			session.setAttribute("loginVo", loginVo);
 			return "redirect:/subMain.do";
 		}
 	}
