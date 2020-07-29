@@ -22,7 +22,7 @@
     <div>
         <ul class="memName">
             <li><a href="<%=request.getContextPath()%>/memEdit.do" class="nameLink"><c:out value="${loginNickname}" /></a> 회원님, 안녕하세요.</li>
-            <li><button type="button" onclick="location.href='./logout.do'" style="color: black;">로그아웃</button>
+            <li><button class="btn btn-primary" type="button" onclick="location.href='./logout.do'" style="color: white; margin-top: 0px;">로그아웃</button>
         </ul>
         <ul class="bar">
             <a href="<%=request.getContextPath()%>/subMain.do"><img class="logo" src="<%=request.getContextPath()%>/images/logo.png"></a>

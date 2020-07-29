@@ -10,6 +10,7 @@
     <title>문제 풀기</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/navi.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/main.css">
 </head>
@@ -18,13 +19,13 @@
     <div>
         <ul class="memName">
             <li><a href="<%=request.getContextPath()%>/memEdit.do" class="nameLink"><c:out value="${loginNickname}" /></a> 회원님, 안녕하세요.</li>
-            <li><button type="button" onclick="location.href='./logout.do'">로그아웃</button>
+            <li><button class="btn btn-primary" type="button" onclick="location.href='./logout.do'">로그아웃</button>
         </ul>
         <ul class="bar">
-            <a href="<%=request.getContextPath()%>/main.do"><img class="logo" src="<%=request.getContextPath()%>/images/logo.png"></a>
+            <a href="<%=request.getContextPath()%>/subMain.do"><img class="logo" src="<%=request.getContextPath()%>/images/logo.png"></a>
             <li><a href="<%=request.getContextPath()%>/ranking.do" class="button">랭킹</a></li>
             <li><a href="<%=request.getContextPath()%>/add.do" class="button">문제 출제</a></li>
-            <li><a href="<%=request.getContextPath()%>/main.do" class="button">문제 리스트</a></li>
+            <li><a href="<%=request.getContextPath()%>/subMain.do" class="button">문제 리스트</a></li>
         </ul>
     </div>
         <hr>
@@ -52,5 +53,8 @@
 			</div>
         </center>
     </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
 </body>
 </html>
