@@ -124,3 +124,7 @@ table{
     width: 460px;
     height: 200px;
 }
+a, a:visited, a:hover{
+	text-decoration: none;
+	color: white;
+}

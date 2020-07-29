@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +18,9 @@
 				<h1>회 원 정 보 수 정</h1>
 			</ul>
 			<ul class="labelCon">
-				<li><label>아이디 <input type="text" name="memId" value="<c:out value='${mainVo.memId}' />" disabled></label></li>
-				<li><label>비밀번호 <input type="password" name="memPassword" value="<c:out value='${mainVo.memId}' />"></label></li>
-				<li><label>별명 <input type="text" name="memNickname" value="<c:out value='${mainVo.memId}' />"></label></li>
+				<li><label>아이디 <input type="text" name="memId" value="<c:out value='${mainVo.memId}' />" disabled /></label></li>
+				<li><label>비밀번호 <input type="password" name="memPassword" value="<c:out value='${mainVo.memPassword}' />" /></label></li>
+				<li><label>별명 <input type="text" name="memNickname" value="<c:out value='${mainVo.memNickname}' />" /></label></li>
 				<li class="btnCon">
 					<button type="submit" id="joinBtn" class="btn btn-success btn-lg">수정</button>
 					<button type="button" id="cancelBtn" class="btn btn-danger btn-lg"><a href="${pageContext.request.contextPath}/subMain.do">취소</a></button>

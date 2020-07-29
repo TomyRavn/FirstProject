@@ -82,7 +82,7 @@
 				</div>
 
 				<button class="btn btn-success btn-lg" type="submit">등록</button>
-				<button class="btn btn-danger btn-lg" type="submit">취소</button>
+				<button class="btn btn-danger btn-lg" type="button" ><a href="${pageContext.request.contextPath}/add.do">취소</a></button>
 			</form>
 		</div>
 
