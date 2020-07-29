@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+<settings>
+  <setting name="mapUnderscoreToCamelCase" value="true"/>
+</settings>
+
+
+<typeAliases>
+  <typeAlias type="kr.co.blockQuiz.MainVo" alias="MainVo"/>
+  <typeAlias type="kr.co.blockQuiz.QuestionVo" alias="QuestionVo"/>
+  <typeAlias type="kr.co.blockQuiz.RankingVo" alias="RankingVo"/>
+  <typeAlias type="kr.co.blockQuiz.CountVo" alias="CountVo"/>
+</typeAliases>
+
+
+
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="oracle.jdbc.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@172.16.144.33:1521:xe"/>
+        <property name="username" value="project"/>
+        <property name="password" value="project01"/>
+      </dataSource>
+    </environment>
+  </environments>
+
+
+  <mappers>
+    <mapper resource="mapper/MainMapper.xml"/>
+    <mapper resource="mapper/QuestionMapper.xml"/>
+    <mapper resource="mapper/RankingMapper.xml"/>
+  </mappers>
+</configuration>

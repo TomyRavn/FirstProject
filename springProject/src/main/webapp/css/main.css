@@ -1,0 +1,77 @@
+#wrap{
+    border-radius: 30px;
+    width: 700px;
+    height: 500px;
+    margin-top: 100px;
+    background-color: white;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 28px;
+}
+body{
+    background-color: black;
+    
+}
+#q{
+    padding-top:50px;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size:30px;
+}
+#my{
+    margin-top:50px;
+    font-size:40px;
+}
+#aaa{
+	position: absolute;
+    margin-top: -100px;
+    margin-left: -87px;
+    font-size: 40px; background: orange; font-family: 궁서체;
+}
+#aaa:hover{
+	background-color: red;
+}
+#bbb{
+	margin-top:10px;
+	font-size: 40px; background: orange; font-family: 궁서체;
+}
+#bbb:hover{
+	background-color: red;
+}
+.container{
+    border: 1px solid black;
+    width: 1882px;
+    height: 750px;
+    background-image: url('../images/tetris2.jpg');
+    background-repeat: no-repeat; 
+    background-size: 1880px 800px;
+}
+.sand{
+    position: absolute;
+    margin-left: 1600px;
+    margin-top: 300px;
+    background-size: 500px 300px;
+}
+.imgCon{
+    width: 400px;
+    height: 200px;
+    background-image: url('../images/book.gif');
+    background-size: 400px 300px;
+    background-position-y: -80px;
+    background-repeat: no-repeat;
+}
+.questionCon{
+    width: 700px;
+    height: 250px;
+    border: 1px solid transparent;
+}
+.textBox{
+    position: absolute;
+    font-size: 25px;
+    margin-top: -100px;
+    float: left;
+    list-style: none;
+}
+.myAns{
+    position: absolute;
+    margin-left: -88px;
+    margin-top: 10px;
+}

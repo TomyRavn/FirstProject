@@ -1,0 +1,36 @@
+#wrap{
+    border-radius: 30px;
+    width: 700px;
+    height: 500px;
+    margin-top: 100px;
+    background-color: white;
+}
+body{
+    background-color: black;
+    
+}
+#q{
+    padding-top:50px;
+    font-size:90px;
+}
+#my{
+    margin-top:50px;
+    font-size:40px;
+}
+#aaa{
+    font-size: 40px; background: orange; font-family: 궁서체;
+}
+.container{
+    border: 1px solid black;
+    width: 1882px;
+    height: 750px;
+    background-image: url('/images/tetris2.jpg');
+    background-repeat: no-repeat; 
+    background-size: 1880px 800px;
+}
+.sand{
+    position: absolute;
+    margin-left: 1600px;
+    margin-top: 300px;
+    background-size: 500px 300px;
+}

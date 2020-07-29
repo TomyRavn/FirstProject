@@ -1,0 +1,65 @@
+body{
+    background-image: url("../images/metin-seven_3d-animated-gif-animation_retro-pong-game-console.gif");
+    background-size : 1920px 1200px;
+    background-repeat: no-repeat;
+    background-position: 0% 25%;
+}
+form{
+    animation-name: join;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both; 
+}
+@keyframes join{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+.container{
+    width:500px;
+    height:400px;
+    margin-left:770px;
+    margin-top:240px;  
+    background-color: white;
+}
+ul{
+    list-style: none;
+    text-align: center;
+}
+ul li label{
+	float:right;
+	margin-top:10px;
+	margin-right:80px;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+.labelCon{
+	margin:0 auto;
+	margin-top:20px;
+	width:500px;
+    height:300px;
+    margin-left:-50px;
+}
+.btnCon{
+	margin-top:50px;
+	width:200px;
+	height:60px;
+	display:inline-block;
+	margin-left:10px;
+}
+#id{
+	margin-top:40px;
+}
+#joinBtn{
+	float:left;
+}
+#cancelBtn{
+	float:right;
+}
+h1{
+	margin-left:-50px;
+}
+a, a:visited, a:hover{
+	text-decoration: none;
+	color: white;
+}

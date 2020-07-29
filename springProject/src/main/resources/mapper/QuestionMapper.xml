@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="kr.co.blockQuiz.QuestionDao">
+
+	<select id="selectQuestionList" resultType="QuestionVo">
+		SELECT question_word, question_explain 
+		FROM question 
+		ORDER BY question_reg_date DESC
+	</select>
+
+	<select id="selectRecentQuestionList" parameterType="string" resultType="QuestionVo">
+		SELECT question_word 
+		FROM question 
+		WHERE question_writer = #{questionWriter} 
+		ORDER BY question_reg_date DESC
+	</select>
+
+	<insert id="insertQustion" parameterType="QuestionVo">
+		INSERT INTO question (question_no, question_word, question_explain, question_writer)
+		VALUES (seq_question_no.NEXTVAL, #{questionWord}, #{questionExplain}, #{questionWriter})
+	</insert>
+	
+	<select id="extractQuestion" parameterType="int" resultType="QuestionVo">
+		SELECT question_word, question_explain 
+		FROM question 
+		WHERE question_no = #{questionNo}
+	</select>
+
+	<select id="maxQuestionNumber" resultType="int">
+		SELECT max(question_no) 
+		FROM question
+	</select>
+	
+</mapper>

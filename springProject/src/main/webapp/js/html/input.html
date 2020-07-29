@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>문제 출제</title>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/navi.css"/>
+    <link rel="stylesheet" href="/css/input.css"/>
+</head>
+
+<body>
+        <center class="cent">
+            <ul class="bar">
+                <a href="#"><img class="logo" src="/images/logo.png"></a>
+                <li><a href="#" class="button">랭킹</a></li>
+                <li><a href="#" class="button">문제 출제</a></li>
+                <li><a href="#" class="button">문제 리스트</a></li>
+                <li><a href="#" class="flat button">(회원 님)</a></li>
+                <hr>
+            </ul>
+        </center>
+    <div class="total">
+        <div class="container3">
+            <audio src="/media/bgm.mp3" controls autoplay loop></audio>
+            
+            <div class="container4">
+                <br><br>
+                <h1 class="search">사전 검색</h1>
+                <label><input id="search" type="text" placeholder="뜻을 검색할 단어를 입력하세요." /></label>
+                <button class="btn btn-primary" type="submit"><img class="buttonImg" src="/images/search.png"></button>
+                <label><textarea class="ans" readonly>뜻</textarea></label>
+            </div>
+        </div>
+        <div class="container">
+
+                <div class="askCon"><img class="askImg" src="/images/askTitle.png"></div>
+        
+                <div>
+                    <label><input id="word" class="text text-success" type="text" placeholder="단어를 입력하세요. (예 : 나비)"/></label>
+                </div>
+
+                <div>
+                    <label><textarea id="explain" class="text text-success" placeholder="단어에 대한 설명을 입력하세요."></textarea></label>
+                </div>
+
+            <button class="btn btn-success btn-lg" type="submit">등록</button>
+            <button class="btn btn-danger btn-lg" type="submit">취소</button>
+            
+        </div>
+
+        <div class="container2">
+            <h2 id="recent">최근 등록한 문제</h2>
+            <hr>
+            <table>
+                    <tr>
+                        <td class="num" id="askNum">번호</td>
+                        <td><p id="askTitle">문제</p></td>
+                    </tr>
+                    <tr>
+                        <td class="num">1</td>
+                        <td>나비</td>
+                    </tr>
+                    <tr>
+                        <td class="num">2</td>
+                        <td>잔나비</td>
+                    </tr>
+                    <tr>
+                        <td class="num">3</td>
+                        <td>원숭이</td>
+                    </tr>
+                    <tr>
+                        <td class="num">4</td>
+                        <td>이구아나</td>
+                    </tr>
+                    <tr>
+                        <td class="num">5</td>
+                        <td>도마뱀</td>
+                    </tr>
+                    <tr>
+                        <td class="num">6</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="num">7</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="num">8</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="num">9</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="num">10</td>
+                        <td></td>
+                    </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+</body>
+</html>

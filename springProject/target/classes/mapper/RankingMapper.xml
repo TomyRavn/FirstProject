@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="kr.co.blockQuiz.RankingDao">
+
+	<select id="selectRanking" resultType="RankingVo">
+		SELECT u_no, u_id, u_nickname, u_score 
+		FROM ranking 
+		ORDER BY u_score DESC, u_no
+	</select>
+
+	<insert id="insertRanking" parameterType="RankingVo">
+		INSERT INTO ranking (u_no, u_id, u_nickname, u_score) 
+		VALUES (u_seq.NEXTVAL, #{uId}, #{uNickname}, #{uScore})
+	</insert>
+
+	<update id="updateRanking" parameterType="RankingVo">
+		UPDATE ranking 
+		SET u_id = #{uId}, u_nickname = #{uNickname}, u_score = #{uScore}
+		WHERE u_no = #{uNo}
+	</update>
+	
+</mapper>

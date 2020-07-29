@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="kr.co.blockQuiz.MainDao">
+
+	<select id="selectLoginMember" parameterType="MainVo" resultType="MainVo">
+		SELECT mem_id, mem_password, mem_nickname 
+		FROM member 
+		WHERE mem_id = #{memId} and mem_password = #{memPassword}
+	</select>
+
+	<select id="selectMember" parameterType="string" resultType="MainVo">
+		SELECT mem_id, mem_password, mem_nickname 
+		FROM member 
+		WHERE mem_id = #{memId}
+	</select>
+
+	<select id="selectQuestion" parameterType="int" resultType="string">
+		SELECT question_explain 
+		FROM question 
+		WHERE question_no = #{questionNo}
+	</select>
+	
+	<insert id="insertMember" parameterType="MainVo">
+		INSERT INTO member (mem_id, mem_password, mem_nickname)
+		VALUES (#{memId}, #{memPassword}, #{memNickname})
+	</insert>
+
+	<update id="updateMember" parameterType="MainVo">
+		UPDATE member 
+		SET mem_password = #{memPassword}, mem_nickname = #{memNickname} 
+		WHERE mem_id = #{memId}
+	</update>
+	
+</mapper>

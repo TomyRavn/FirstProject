@@ -1,0 +1,100 @@
+.btn{
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Nanum Pen Script', cursive;
+    margin-top: 50px;
+}
+.textLabel{
+    margin-top: 80px;
+}
+li{
+    float: right;
+    text-decoration: none;
+    list-style: none;
+    margin-right: 100px;
+    padding: 5px;
+}
+.textBox{
+    margin-left: 20px;
+}
+fieldset{
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Nanum Pen Script', cursive;
+    text-align: center;
+}
+legend{
+    font-size: 50px;
+}
+.imgBox{
+    width: 200px;
+    height: 200px;
+}
+.innerLeftCon{
+    margin-left: -15px;
+    margin-top: 150px;
+    width: 260px;
+    height: 700px;
+    position: absolute;
+    background-image: url('../images/gamepad_left.png');
+    background-repeat: no-repeat;
+    background-size: 260px 700px;
+}
+.innerCenterCon{
+    width: 1400px;
+    height: 700px;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 245px;
+}
+.innerRightCon{
+    width: 260px;
+    height: 700px;
+    margin-left: 1645px;
+    margin-top: 150px;
+    position: absolute;
+    background-image: url('../images/gamepad_right.png');
+    background-repeat: no-repeat;
+    background-size: 260px 700px;
+}
+.loginBox{
+    margin-top: 80px;
+    margin-left: 10px;
+    width: 600px;
+    height: 650px;
+    background-image: url('../images/loginbox.png');
+    background-size: 600px 650px;
+    background-repeat: no-repeat;
+}
+#joinBtn{
+    margin-left: 100px;
+    float: left;
+}
+#loginBtn{
+    margin-right: 100px;
+    float: right;
+}
+.container{
+    width: 1920px;
+    height: 967px;
+    background-image: url('../images/login.gif');
+    background-size: 1400px 1200px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.logo{
+    margin-left: 370px;
+    margin-top: 50px;
+    width: 400px;
+    height: 160px;
+    position: absolute;
+}
+body{
+    background: radial-gradient(black,yellow, black);
+}
+.loginTitle{
+    position: absolute;
+    font-size: 100px;
+    margin-left: 200px;
+    margin-top: 100px;
+}
