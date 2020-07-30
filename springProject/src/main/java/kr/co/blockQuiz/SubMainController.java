@@ -3,6 +3,8 @@ package kr.co.blockQuiz;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +23,12 @@ public class SubMainController {
 
 	// subMain
 	@RequestMapping(value = "/subMain.do", method = RequestMethod.GET)
-	public String print() {
+	public String print(HttpSession session) {
+		
+		session.setAttribute("countVo", null);
+		CountVo countVo = new CountVo();
+		session.setAttribute("countVo", countVo);
+		
 		return "project/subMain";
 	}
 
@@ -33,9 +40,18 @@ public class SubMainController {
 
 		ArrayList<Integer> numArr = new ArrayList<Integer>();
 		CountVo countVo = new CountVo();
+		
 
 		session.setAttribute("countVo", countVo);
 		session.setAttribute("numArr", numArr);
+		
+		
+		session.setAttribute("timer", new AtomicInteger(31));
+		long currentTimeMillis = System.currentTimeMillis();
+		currentTimeMillis += 30 * 1000;
+		session.setAttribute("cTimer", new AtomicLong(currentTimeMillis));
+		
+		session.setAttribute("RankingVo", null);
 		
 		return "redirect:/main.do";
 	}
@@ -113,6 +129,10 @@ public class SubMainController {
 	@RequestMapping(value = "/memEdit.do", method = RequestMethod.GET)
 	public String editForm(HttpSession session, HttpServletRequest req) {
 
+		session.setAttribute("RankingVo", null);
+		RankingVo rankingVo = new RankingVo();
+		session.setAttribute("RankingVo", rankingVo);
+		
 		String memId = (String) session.getAttribute("loginUser");
 		MainVo vo = mainService.selectMember(memId);
 

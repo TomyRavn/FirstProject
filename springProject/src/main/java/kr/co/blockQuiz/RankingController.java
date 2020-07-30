@@ -21,9 +21,10 @@ public class RankingController {
 		
 		CountVo countVo = (CountVo) session.getAttribute("countVo");
 		MainVo loginVo = (MainVo) session.getAttribute("loginVo");
-		RankingVo rankingVo = new RankingVo();
+		RankingVo ranking = (RankingVo) session.getAttribute("RankingVo");
 		
-		if(countVo != null) {
+		if(countVo != null && (countVo.getCorCount() != 0) && ranking==null) {
+			RankingVo rankingVo = new RankingVo();
 			int score = countVo.getCorCount();
 			String memId = loginVo.getMemId();
 			String memNickname = loginVo.getMemNickname();
@@ -33,6 +34,7 @@ public class RankingController {
 			rankingVo.setuScore(score);
 			
 			rankingService.insertRanking(rankingVo);
+			session.setAttribute("RankingVo", rankingVo);
 		}
 		
 		List<RankingVo> rankingList = rankingService.selectRanking();

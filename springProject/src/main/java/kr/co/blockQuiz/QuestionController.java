@@ -21,6 +21,10 @@ public class QuestionController {
 	@RequestMapping(value = "/add.do", method = RequestMethod.GET)
 	public String recentList(HttpSession session, HttpServletRequest req) {
 		
+		session.setAttribute("countVo", null);
+		CountVo countVo = new CountVo();
+		session.setAttribute("countVo", countVo);
+		
 		id = (String) session.getAttribute("loginUser");
 		
 		List<QuestionVo> questionList = questionService.selectRecentQuestionList(id);
