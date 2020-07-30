@@ -1,8 +1,6 @@
 package kr.co.blockQuiz;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,7 +27,7 @@ public class SubMainController {
 
 	@RequestMapping(value = "/subMain.do", method = RequestMethod.POST)
 	public String transport(HttpSession session) {
-
+		
 		session.setAttribute("countVo", null);
 		session.setAttribute("numArr", null);
 
@@ -38,49 +36,83 @@ public class SubMainController {
 
 		session.setAttribute("countVo", countVo);
 		session.setAttribute("numArr", numArr);
-
+		
 		return "redirect:/main.do";
 	}
+	
+	
+	// memAdd	//Spring은 매개변수에 이미 다 넣어준다.
+	@RequestMapping(value = "/memAddajax.do")
+	@ResponseBody
+	public Map<String, Object> memAdd(MainVo vo) {
 
-	// memAdd
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		int num = 0;
+
+		if (!(vo.getMemId().equals("")) && !(vo.getMemPassword().equals("")) && !(vo.getMemNickname().equals(""))) {
+
+			num = mainService.insertMember(vo);
+
+			System.out.println(num + " 명 회원 추가");
+
+			if (num <= 0)
+				map.put("mainVo", null);
+			else
+				map.put("mainVo", vo);
+
+		} else {
+			map.put("mainVo", null);
+		}
+
+		return map;
+	}
+	
 	@RequestMapping(value = "memAdd.do", method = RequestMethod.GET)
 	public String addForm() {
 		return "project/memAddForm";
 	}
+	
+	// memEdit
+	@RequestMapping(value = "/memEditajax.do")
+	@ResponseBody
+	public Map<String, Object> memEdit(HttpServletRequest req, HttpSession session) {
 
-	@RequestMapping(value = "memAdd.do", method = RequestMethod.POST)
-	public String add(HttpServletRequest req) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
 		MainVo vo = new MainVo();
 
-		String memId = req.getParameter("memId");
+		MainVo memVo = (MainVo) session.getAttribute("loginVo");
+		String memId = memVo.getMemId();
 		String memPassword = req.getParameter("memPassword");
 		String memNickname = req.getParameter("memNickname");
 		int num = 0;
-
 		
-		if (!(memId.equals("")) && !(memPassword.equals("") && !(memNickname.equals("")))) {
+		if (!(memPassword.equals("")) && !(memNickname.equals(""))) {
 			vo.setMemId(memId);
 			vo.setMemPassword(memPassword);
 			vo.setMemNickname(memNickname);
 
-			num = mainService.insertMember(vo);
-			
-			System.out.println(num + " 명 회원 추가");
+			num = mainService.updateMember(vo);
+			System.out.println(num + " 명 회원 수정 완료");
 
 			if (num <= 0)
-				return "redirect:/memAdd.do";
-			else
-				return "redirect:/login.do";
-
+				map.put("memVo", null);
+			else {
+				MainVo loginVo = mainService.selectLoginMember(vo);
+				session.setAttribute("loginVo", loginVo);
+				map.put("memVo", vo);
+			}
 		} else {
-			return "redirect:/memAdd.do";
+			map.put("memVo", null);
 		}
-	}
 
-	// memEdit
+		return map;
+	}
+	
 	@RequestMapping(value = "/memEdit.do", method = RequestMethod.GET)
 	public String editForm(HttpSession session, HttpServletRequest req) {
-		
+
 		String memId = (String) session.getAttribute("loginUser");
 		MainVo vo = mainService.selectMember(memId);
 
@@ -88,69 +120,28 @@ public class SubMainController {
 
 		return "project/memEditForm";
 	}
-	
-	@RequestMapping(value = "/memEdit.do", method = RequestMethod.POST)
-	public String edit(HttpSession session, HttpServletRequest req) {
-		MainVo vo = new MainVo();
-
-		String memId = (String) session.getAttribute("loginUser");
-		String memPassword = req.getParameter("memPassword");
-		String memNickname = req.getParameter("memNickname");
-		int num = 0;
-		
-		if(!(memPassword.equals("") && !(memNickname.equals("")))) {
-			vo.setMemId(memId);
-			vo.setMemPassword(memPassword);
-			vo.setMemNickname(memNickname);
-			
-			num = mainService.updateMember(vo);
-			System.out.println(num + " 명 회원 추가");
-			
-			if(num <= 0) return "redirect:/memEdit.do"; 
-			else {
-				session.setAttribute("loginNickname", vo.getMemNickname());
-				return "redirect:/subMain.do";
-			}
-		}else {
-			return "redirect:/memEdit.do";			
-		}
-	}
 
 	// login
+	@RequestMapping(value = "/loginajax.do")
+	@ResponseBody
+	public Map<String, Object> data(MainVo vo, HttpSession session) {
+
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		MainVo loginVo = mainService.selectLoginMember(vo);
+		
+		if (loginVo == null) {
+			map.put("loginVo", null);
+		} else {
+			session.setAttribute("loginVo", loginVo);
+			map.put("loginVo", loginVo);
+		}
+
+		return map;
+	}
+
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public String loginForm() {
 		return "project/login";
-	}
-
-	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
-	public String login(MainVo vo, HttpSession session) {
-
-		MainVo loginVo = mainService.selectLoginMember(vo);
-
-		if (loginVo == null) {
-			
-			try {
-				Thread.sleep(300);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			
-			return "redirect:/login.do";
-		} else {
-			session.setAttribute("loginVo", loginVo);
-			return "redirect:/subMain.do";
-		}
-	}
-	
-	@RequestMapping("/login.do")
-	@ResponseBody
-	public Map<String, Object> data(MainVo vo) {
-		
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		MainVo loginVo = mainService.selectLoginMember(vo);
-		map.put("loginVo", loginVo);
-		
-		return map;
 	}
 
 	// logout

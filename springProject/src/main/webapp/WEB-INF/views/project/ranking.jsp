@@ -16,7 +16,7 @@
     <center class="cent">
     <div>
         <ul class="memName">
-            <li><a href="<%=request.getContextPath()%>/memEdit.do" class="nameLink"><c:out value="${loginNickname}" /></a> 회원님, 안녕하세요.</li>
+            <li><a href="<%=request.getContextPath()%>/memEdit.do" class="nameLink"><c:out value="${loginVo.memNickname}" /></a> 회원님, 안녕하세요.</li>
             <li><button class="btn btn-primary" type="button" onclick="location.href='./logout.do'">로그아웃</button>
         </ul>
         <ul class="bar">
@@ -44,7 +44,7 @@
         <div class="div1">
             <br/><br/>
             <table id = "p">
-                <th><h1>당신은 상위 <c:out value="${RankingVo.uScore/RankingVo*100}" /> %의 지식인입니다.</h1></th>
+                <th><h1>당신은 상위 <c:out value="0" /> %의 지식인입니다.</h1></th>
             </table>
         </div>
 

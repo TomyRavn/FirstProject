@@ -24,7 +24,7 @@
         <div class="innerCenterCon">
             <div class="loginBox">
                 <fieldset>
-              <form action ="${pageContext.request.contextPath}/login.do" method ="post">  
+              <form id="loginForm">  
                     <ul><p class="loginTitle">로그인</p></ul>
                     <ul>
                         <div class="imgBox"></div>
@@ -34,11 +34,11 @@
                             <li>PassWord <input type="password" id="pw" name="memPassword" class="textBox" /> </li>
                         </label>
                         <div id="alert" class="alert alert-danger fade in" style="display:none;">
-                         	<p class="failMessage">로그인실패</p>
+                         	<p class="failMessage">로그인이 실패하였습니다</p>
                         </div>
                     </ul>
-                    <button id="loginBtn" class="btn btn-warning" type="submit" onclick="check()">로그인</button>
                </form>
+                    <button id="loginBtn" class="btn btn-warning" type="button" onclick="check()">로그인</button>
                     <button id="joinBtn" class="btn btn-danger" onclick="location.href='./memAdd.do'">회원가입</button>
                 </fieldset>
             </div>
@@ -51,21 +51,24 @@
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
     <script>
     	let isSuccess = false;
+    	
     	function check(){
     		$.ajax({
-				url : "${pageContext.request.contextPath}/login.do",
+				url : "${pageContext.request.contextPath}/loginajax.do",
+				data : $('#loginForm').serialize(),
 				dataType : "json"
 			}).done(function(data) {
-				if(data.loginVo){
+				if(data.loginVo != null){
 					isSuccess = true;	
 				}else{
     				isSuccess = false;
 				}
+    			if(!isSuccess) $('#alert').show();
+    			else location.href='./subMain.do';
 			}).fail(function(jqXHR, textStatus) {
 				alert("Request failed: " + textStatus);
 			});
     		
-    		if(!isSuccess) $('#alert').show();
     	}
     </script>
 

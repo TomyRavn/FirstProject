@@ -19,7 +19,7 @@
     <center class="cent">
     <div>
         <ul class="memName">
-            <li><a href="<%=request.getContextPath()%>/memEdit.do" class="nameLink"><c:out value="${loginNickname}" /></a> 회원님, 안녕하세요.</li>
+            <li><a href="<%=request.getContextPath()%>/memEdit.do" class="nameLink"><c:out value="${loginVo.memNickname}" /></a> 회원님, 안녕하세요.</li>
             <li><button class="btn btn-primary" type="button" onclick="location.href='./logout.do'">로그아웃</button>
         </ul>
         <ul class="bar">
@@ -62,6 +62,7 @@
 			        		<label>전체 <input id='total' value='<c:out value="${countVo.totCount}" />' disabled/></label>
 			        	</li>
                 	</ul>
+                	<div class="timer"></div>
 				</form>  
 			</div>
         </center>
@@ -69,5 +70,33 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+	<script type="text/javascript">
+		function requestTime() {
+			
+			$.ajax({
+				url : "${pageContext.request.contextPath}/data.do",
+				dataType : "json"
+			}).done(function(data) {
+// 				if(data.num <= 0){
+// 					location.href='./ranking.do';
+// 				}else{
+// 					$('.timer').html(data.num);	
+// 				}
+				if(data.l <= 0){
+					location.href='./ranking.do';
+				}else{
+					$('.timer').html(data.l);	
+				}
+			}).fail(function(jqXHR, textStatus) {
+				alert("Request failed: " + textStatus);
+			});
+		}
+		
+		requestTime();
+		
+		setInterval(function() {
+			requestTime();
+		}, 1000);
+	</script>
 </body>
 </html>

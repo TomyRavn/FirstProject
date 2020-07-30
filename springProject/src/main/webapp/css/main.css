@@ -75,3 +75,9 @@ body{
     margin-left: -88px;
     margin-top: 10px;
 }
+.timer{
+	position:absolute;
+	margin-top: -200px;
+	margin-left: 580px;
+	font-size: 100px;
+}

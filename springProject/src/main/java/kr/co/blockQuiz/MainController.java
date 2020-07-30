@@ -1,6 +1,12 @@
 package kr.co.blockQuiz;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller("/main.do")
 public class MainController {
@@ -69,6 +76,10 @@ public class MainController {
 		
 		session.setAttribute("questionVo", questionVo);
 		session.setAttribute("numArr", numArr);
+		session.setAttribute("timer", new AtomicInteger(31));
+		long currentTimeMillis = System.currentTimeMillis();
+		currentTimeMillis += 30 * 1000;
+		session.setAttribute("cTimer", new AtomicLong(currentTimeMillis));
 		
 		return "project/main";
 	}
@@ -94,5 +105,22 @@ public class MainController {
 		session.setAttribute("countVo", countVo);
 		
 		return "redirect:/main.do";
+	}
+	
+	@RequestMapping("/data.do")
+	@ResponseBody
+	public Map<String, Object> data(HttpSession session) {
+		
+		AtomicInteger n = (AtomicInteger) session.getAttribute("timer");
+		AtomicLong num = (AtomicLong) session.getAttribute("cTimer");
+		
+		long l = (num.get() - System.currentTimeMillis()) / 1000;
+		int decr = n.decrementAndGet();
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("num", decr);
+		map.put("l", l);
+		
+		return map;
 	}
 }
